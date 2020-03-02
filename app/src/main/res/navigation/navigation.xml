@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.laboratori4.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_secondFragment"
+            app:destination="@+id/secondFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_biografia2"
+            app:destination="@id/biografia2" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.example.laboratori4.SecondFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_second" >
+        <action
+            android:id="@+id/action_secondFragment_to_comentario"
+            app:destination="@id/comentario" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="http://guatemala-myapp.com"
+            android:autoVerify="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/comentario"
+        android:name="com.example.laboratori4.Comentario"
+        android:label="fragment_comentario"
+        tools:layout="@layout/fragment_comentario" >
+        <argument
+            android:name="coment"
+            app:argType="string"
+            android:defaultValue="default" />
+        <action
+            android:id="@+id/action_comentario_to_resultados"
+            app:destination="@id/resultados" />
+    </fragment>
+    <fragment
+        android:id="@+id/biografia2"
+        android:name="com.example.laboratori4.Biografia"
+        android:label="fragment_biografia"
+        tools:layout="@layout/fragment_biografia" >
+        <action
+            android:id="@+id/action_biografia2_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultados"
+        android:name="com.example.laboratori4.Resultados"
+        android:label="fragment_resultados"
+        tools:layout="@layout/fragment_resultados" />
+</navigation>
